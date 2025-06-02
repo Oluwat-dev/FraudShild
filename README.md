@@ -18,6 +18,8 @@ FraudShield is a robust web application designed to monitor and detect fraudulen
 *   **Search Functionality**: Quickly find transactions by merchant, category, or amount.
 *   **Theme Toggle**: Switch between light and dark modes for a personalized viewing experience.
 *   **Responsive Design**: Optimized for seamless use across various devices (desktop, tablet, mobile).
+*   <img width="434" alt="image" src="https://github.com/user-attachments/assets/674a20be-7989-4281-84fc-59dfd2ac9ae6" />
+
 
 ## 🚀 Technologies Used
 
