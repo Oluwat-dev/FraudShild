@@ -1,5 +1,5 @@
 
-# FraudShield: Advanced Fraud Detection System
+# 🛡️FraudShield: Advanced Fraud Detection System
 
 FraudShield is a robust web application designed to monitor and detect fraudulent financial transactions in real-time. Leveraging modern web technologies and a machine learning-driven approach, it provides users with insights into their transaction patterns, flags suspicious activities, and offers tools for managing potential fraud cases.
 
@@ -114,7 +114,8 @@ To start the development server:
 ```bash
 npm run dev
 # or
-yarn dev```
+yarn dev
+```
 The application will be accessible at http://localhost:5173.
 
 # 🛡️ FraudShield
