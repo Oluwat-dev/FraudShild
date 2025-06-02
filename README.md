@@ -41,7 +41,7 @@ FraudShield is a robust web application designed to monitor and detect fraudulen
     *   **Resend**: For sending email notifications (e.g., admin alerts for disputes).
 
  
-    *   **User Interface Snapshots**
+    ##   **User Interface Snapshots**
     *   <img width="736" alt="Image" src="https://github.com/user-attachments/assets/eb2f688b-f6f3-4738-bdc1-4202faf719c8" />
 
 ## ⚙️ Getting Started
