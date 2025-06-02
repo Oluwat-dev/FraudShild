@@ -114,7 +114,7 @@ To start the development server:
 ```bash
 npm run dev
 # or
-yarn dev
+yarn dev```
 The application will be accessible at http://localhost:5173.
 
 # 🛡️ FraudShield
