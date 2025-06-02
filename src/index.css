@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply antialiased text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-900;
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+/* Mobile-first responsive design */
+@layer base {
+  html {
+    font-size: 14px;
+    @screen md {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Custom scrollbar for better mobile experience */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+  }
+}
+
+/* Touch-friendly buttons and inputs */
+@layer components {
+  .touch-button {
+    @apply min-h-[44px] px-4 py-2 select-none touch-manipulation;
+  }
+  
+  .touch-input {
+    @apply min-h-[44px] px-4 py-2;
+  }
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Fix for iOS Safari bottom bar */
+.safe-area-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Fix for notched displays */
+@supports (padding: max(0px)) {
+  .safe-area-pt {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-area-pl {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+  
+  .safe-area-pr {
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
