@@ -37,16 +37,30 @@ FraudShield is a robust web application designed to monitor and detect fraudulen
         *   **Supabase Auth**: For user authentication and management.
         *   **Supabase Edge Functions**: Serverless functions for backend logic (e.g., `process-transaction`, `create-fraud-case`, `notify-admin`).
         *   **Realtime**: For instant updates and notifications.
-*   **Fraud Detection (Conceptual)**:
+*   **Fraud Detection**:
     *   **TensorFlow.js**: A library for machine learning in JavaScript, used for the conceptual fraud detection model.
     *   **Deno**: Runtime for Supabase Edge Functions.
     *   **Resend**: For sending email notifications (e.g., admin alerts for disputes).
 
  
     ##   **User Interface Snapshots**
-    *   <img width="736" alt="Image" src="https://github.com/user-attachments/assets/eb2f688b-f6f3-4738-bdc1-4202faf719c8" />
-      <img width="434" alt="image" src="https://github.com/user-attachments/assets/674a20be-7989-4281-84fc-59dfd2ac9ae6" />
-      <img width="788" alt="image" src="https://github.com/user-attachments/assets/88cb2ca3-a104-4bff-bb37-e8e587cb49ee" />
+    <div>
+  <img width="736" alt="FraudShield User Dashboard" src="https://github.com/user-attachments/assets/eb2f688b-f6f3-4738-bdc1-4202faf719c8" />
+  <p><strong>FraudShield User Dashboard UI</strong></p>
+</div>
+
+<div>
+<img width="751" alt="image" src="https://github.com/user-attachments/assets/79adb8ad-2652-4904-a254-0cd3768f1c52" />
+
+  <p><strong>FraudShield Recent Transactions</strong></p>
+</div>
+
+<div>
+  <img width="788" alt="Recent Transactions" src="https://github.com/user-attachments/assets/88cb2ca3-a104-4bff-bb37-e8e587cb49ee" />
+  <p><strong>FraidShield Fraud Detection Warning UI</strong></p>
+</div>
+
+
 
 
 ## ⚙️ Getting Started
@@ -63,7 +77,7 @@ Follow these steps to set up and run FraudShield locally on your machine.
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/fraudshield.git
+    git clone https://github.com/Oluwat-dev/FraudShild.git
     cd fraudshield
     ```
 
@@ -101,3 +115,76 @@ To start the development server:
 npm run dev
 # or
 yarn dev
+The application will be accessible at http://localhost:5173.
+
+# 🛡️ FraudShield
+
+FraudShield is an intelligent fraud detection and prevention system powered by Supabase and machine learning. This repository outlines the core architecture, database schema, fraud detection logic, and deployment process.
+
+---
+
+## 📊 Database Schema
+
+FraudShield's database is powered by **PostgreSQL** via **Supabase**. Key tables include:
+
+- **`users`**: Stores user-specific data, including their balance.
+- **`transactions`**: Records all financial transactions, including:
+  - amount
+  - merchant
+  - category
+  - risk score
+  - fraud status
+- **`fraud_cases`**: Manages reported fraud incidents, links them to specific transactions, and tracks resolution status.
+
+The schema also includes:
+
+- Custom **enums**:
+  - `transaction_status`
+  - `fraud_case_status`
+- PostgreSQL **functions** for business logic and data integrity:
+  - `transfer_money`
+  - `validate_recipient_email`
+  - `update_user_balance`
+  - `handle_new_user`
+  - `update_updated_at_column`
+
+---
+
+## 🧠 Fraud Detection Model
+
+The core of FraudShield's intelligence lies in its conceptual fraud detection model.
+
+- The current implementation (`src/lib/fraudModel.ts`) uses a simplified **TensorFlow.js** model for demonstration.
+- The **`process-transaction`** Supabase Edge Function is responsible for:
+  - Receiving transaction data.
+  - Calculating a `risk_score` based on amount, category, location, device info, etc.
+  - Determining if a transaction is `is_fraudulent`.
+  - Inserting the transaction into the `transactions` table.
+  - Updating sender and recipient balances (for P2P transfers).
+
+---
+
+## 🚀 Deployment
+
+FraudShield can be easily deployed:
+
+- **Frontend**: Deploy the React app to static hosting platforms like **Netlify** or **Vercel**. 🔗 You can access the application [here](https://jade-faun-7da1f3.netlify.app/)
+
+- **Backend**: The **Supabase** project handles:
+  - Database
+  - Authentication
+  - Edge Functions (automatically deployed when pushed)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+Feel free to open an **issue** or submit a **pull request** if you have ideas for improvements or new features.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
